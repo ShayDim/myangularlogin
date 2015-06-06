@@ -1,0 +1,9 @@
+{
+  "firebase": "myangularlogin",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

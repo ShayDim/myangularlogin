@@ -13,7 +13,6 @@ angular.module('myangularloginApp')
     firebase.on("value", function(snapshot) {
 
       var obj = snapshot.val();
-      console.log(obj);
 
       $scope.customers = obj.customers;
       $scope.$apply();

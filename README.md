@@ -26,7 +26,7 @@ But seriously, yeoman is a tool for creating a web application skeleton very eas
 Yo Angular (the tool used for this exercise) automatically generates a skeleton for your AngularJS app that is integrated with Bower and grunt tools and provides you with everything you need to create your app.
 
 ###Bower
-Bower, like npm, is a package manager only for client side applications.  
+Bower, like npm, is a package manager for client side applications.  
 Bower can be used to find, download  and handle dependencies for packages of varied types. 
 
 ###Grunt

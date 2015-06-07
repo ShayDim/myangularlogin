@@ -12,9 +12,24 @@ angular.module('myangularloginApp')
     $scope.customers = {};
     firebase.on("value", function(snapshot) {
 
-      var obj = snapshot.val();
+      var names = new Array();
+      var customersList = snapshot.val();
+      if(customersList == null) {
+        return;
+      }
+      customersList = customersList.customers;
+      for (var key in customersList) {
+        if (customersList.hasOwnProperty(key)) {
+          var obj = customersList[key];
+          for (var prop in obj) {
+            if(obj.hasOwnProperty(prop)){
+              names.push(prop);
+            }
+          }
+        }
+      }
 
-      $scope.customers = obj.customers;
+      $scope.customers = names;
       $scope.$apply();
     }, function (errorObject) {
       console.log("The read failed: " + errorObject.code);

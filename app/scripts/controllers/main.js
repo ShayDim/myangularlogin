@@ -16,17 +16,30 @@ angular.module('myangularloginApp')
       var realPassword = "";
 
       firebase.on("value", function(snapshot){
-        var obj = snapshot.val();
-        if(obj == null) {
+        var customersList = snapshot.val();
+        if(customersList == null) {
           return;
         }
-        obj = obj.customers;
-        for (var customer in obj) {
-          if (customer === usernameInput) {
-            realPassword = obj[customer];
+        customersList = customersList.customers;
+        for (var key in customersList) {
+          if (customersList.hasOwnProperty(key)) {
+            var obj = customersList[key];
+            for (var prop in obj) {
+              if(obj.hasOwnProperty(prop)){
+                if(prop === usernameInput) {
+                  realPassword = obj[prop];
+                }
+              }
+            }
           }
         }
 
+        if(realPassword === passwordInput) {
+          $location.path('/customerList');
+        }
+        else{
+          alert("Wrong username or password!!!");
+        }
 
       }, function (error) {
           if (error) {
@@ -35,12 +48,7 @@ angular.module('myangularloginApp')
 
       });
 
-      if(realPassword === passwordInput) {
-        $location.path('/customerList');
-      }
-      else{
-        alert("Wrong username or password!!!");
-      }
+
       $scope._username = '';
       $scope._password = '';
     };

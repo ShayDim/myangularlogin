@@ -13,18 +13,10 @@ angular.module('myangularloginApp')
 
     $scope.addCustomer = function () {
 
-      var customers = {customers: {}} ;
-      firebase.on("value", function(snapshot) {
-
-        customers = snapshot.val();
-
-      }, function (errorObject) {
-        console.log("The read failed: " + errorObject.code);
-      });
-
-      customers.customers[$scope._username] = $scope._password;
-      firebase.set(
-        customers
+      var tmp = {};
+      tmp[$scope._username] = $scope._password;
+      firebase.child("customers").push(
+        tmp
         , function(error, userData) {
         if (error) {
           alert("Error creating customer: ", error);

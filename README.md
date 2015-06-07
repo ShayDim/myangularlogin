@@ -19,6 +19,8 @@ Client exercise summary
 I worked on windows using PowerShell and WebStorm IDE.
 I started by following the codelab on the yeoman site. Everything was simple and well documented. 
 The greatest challenge for me, being  unfamiliar with MVC architectural pattern, was understanding and using Angular.
+Also, my knowledge and understanding of the Javascript language is very basic, so I needed refer to google quite often- 
+which was great because it gave me a chance to work on my Javascript skills.
 
 ###Yeoman
 A yeoman was a member of a social class in medieval England... 

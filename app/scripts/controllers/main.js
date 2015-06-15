@@ -13,7 +13,7 @@ angular.module('myangularloginApp')
 
       var passwordInput = $scope._password;
       var usernameInput = $scope._username;
-      var realPassword = "";
+      var realPassword;
 
       firebase.on("value", function(snapshot){
         var customersList = snapshot.val();

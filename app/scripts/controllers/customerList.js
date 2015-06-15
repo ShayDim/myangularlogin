@@ -12,7 +12,7 @@ angular.module('myangularloginApp')
     $scope.customers = {};
     firebase.on("value", function(snapshot) {
 
-      var names = new Array();
+      var names = [];
       var customersList = snapshot.val();
       if(customersList == null) {
         return;
